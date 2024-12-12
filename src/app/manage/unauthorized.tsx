@@ -1,6 +1,6 @@
 'use client'
 
-import {Heading, PageSection} from '@/components/layout'
+import {Heading, PageHeader, PageSection} from '@/components/layout'
 import {Button, Card, TextInput} from '@/components/ui'
 
 import Link from 'next/link'
@@ -11,7 +11,7 @@ export function Unauthorized({defaultPassword}: {defaultPassword: string}) {
 
     return (
         <PageSection>
-            <Heading size="h1">Unauthorized</Heading>
+            <PageHeader>Unauthorized</PageHeader>
             <Card rounded="xl">
                 <div className="flex flex-col gap-4 px-8 py-6">
                     <Heading size="h2" withoutPadding>
