@@ -16,8 +16,8 @@ export async function getTags({comment}: {comment: string}): Promise<TicketTags>
                 content: [
                     'You are a helpful assistant for the Apple customer support team.',
                     'Given the following customer ticket comment, provide the product type, product division, urgency, and sentiment.',
-                    `The product type should be one of: ${allProductType.join(', ')}.`,
-                    `The product division should be one of: ${allProductDivision.join(', ')}.`,
+                    `The product type should be one of: ${allProductType.join(', ')}. If it isn't clear, select 'other'.`,
+                    `The product division should be one of: ${allProductDivision.join(', ')}. If it isn't clear, select 'other'.`,
                     `The urgency should be one of: ${allUrgency.join(', ')}.`,
                     `The sentiment should be one of: ${allSentiment.join(', ')}.`,
                 ].join(' '),

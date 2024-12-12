@@ -3,27 +3,28 @@
 import {Heading, PageHeader, PageSection} from '@/components/layout'
 import {Button, Card, TextInput} from '@/components/ui'
 
-import Link from 'next/link'
+import {useRouter} from 'next/navigation'
 import {useState} from 'react'
 
 export function Unauthorized({defaultPassword}: {defaultPassword: string}) {
     const [password, setPassword] = useState<string>(defaultPassword)
+    const router = useRouter()
 
     return (
         <PageSection>
-            <PageHeader>Unauthorized</PageHeader>
+            <PageHeader>Manage Tickets</PageHeader>
             <Card rounded="xl">
-                <div className="flex flex-col gap-4 px-8 py-6">
+                <form action={() => router.push(`/manage?password=${password}`)} className="flex flex-col gap-4 px-8 py-6">
                     <Heading size="h2" withoutPadding>
                         Enter Password
                     </Heading>
                     <TextInput type="text" placeholder="Password" value={password} setValue={setPassword} />
-                    <Link href={{pathname: '/manage', query: {password}}}>
+                    <button type="submit" className="active:opacity-80">
                         <Button size="lg" theme="accent">
                             Submit
                         </Button>
-                    </Link>
-                </div>
+                    </button>
+                </form>
             </Card>
         </PageSection>
     )
