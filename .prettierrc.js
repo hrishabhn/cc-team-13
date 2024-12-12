@@ -20,6 +20,7 @@ const config = {
 
     importOrder: [
         //
+        'server-only',
         '^./(.*)$',
         '<THIRD_PARTY_MODULES>',
         '^@/lib/(.*)$',
