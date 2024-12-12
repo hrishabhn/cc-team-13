@@ -2,9 +2,9 @@ import {z} from 'zod'
 
 // schema of new ticket
 export const CreateTicketSchema = z.object({
-    name: z.string(),
-    email: z.string().email(),
-    comment: z.string(),
+    name: z.string().trim(),
+    email: z.string().trim().email(),
+    comment: z.string().trim(),
 })
 
 // enums
