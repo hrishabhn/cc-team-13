@@ -17,8 +17,8 @@ export function CreateTicketForm() {
             <TextInput
                 //
                 type="text"
-                placeholder="Title"
-                name="title"
+                placeholder="Name"
+                name="name"
                 required
             />
             <TextInput

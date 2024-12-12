@@ -2,33 +2,38 @@ import {z} from 'zod'
 
 // schema of new ticket
 export const CreateTicketSchema = z.object({
-    title: z.string(),
+    name: z.string(),
     email: z.string().email(),
     comment: z.string(),
 })
 
 // enums
-const allTicketType = ['issue', 'suggestion', 'other'] as const
-const allUrgency = ['low', 'medium', 'high'] as const
-const allSentiment = ['positive', 'neutral', 'negative'] as const
+export const allProductType = ['iphone', 'ipad', 'mac', 'watch', 'other'] as const
+export const allProductDivision = ['hardware', 'software', 'service', 'other'] as const
+export const allUrgency = ['low', 'medium', 'high'] as const
+export const allSentiment = ['positive', 'neutral', 'negative'] as const
 
-const TicketTypeSchema = z.enum(allTicketType)
+const ProductTypeSchema = z.enum(allProductType)
+const ProductDivisionSchema = z.enum(allProductDivision)
 const UrgencySchema = z.enum(allUrgency)
 const SentimentSchema = z.enum(allSentiment)
 
 // schema of ticket from database
 export const TicketSchema = z.object({
     id: z.string().uuid(),
-    title: z.string(),
+    name: z.string(),
     email: z.string().email(),
     comment: z.string(),
-    ticket_type: TicketTypeSchema.nullable(),
+
+    product_type: ProductTypeSchema.nullable(),
+    product_division: ProductDivisionSchema.nullable(),
     urgency: UrgencySchema.nullable(),
     sentiment: SentimentSchema.nullable(),
 })
 
 export const TicketTagsSchema = z.object({
-    ticket_type: TicketTypeSchema,
+    product_type: ProductTypeSchema,
+    product_division: ProductDivisionSchema,
     urgency: UrgencySchema,
     sentiment: SentimentSchema,
 })

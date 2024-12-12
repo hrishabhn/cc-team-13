@@ -11,7 +11,7 @@ import {useState} from 'react'
 
 export function TicketCard({ticket}: {ticket: Ticket}) {
     const [pending, setPending] = useState<boolean>(false)
-    const isUntagged = ticket.ticket_type === null || ticket.urgency === null || ticket.sentiment === null
+    const isUntagged = ticket.product_type === null || ticket.product_division === null || ticket.urgency === null || ticket.sentiment === null
 
     return (
         <Card rounded="xl">
@@ -19,7 +19,7 @@ export function TicketCard({ticket}: {ticket: Ticket}) {
                 <Menu>
                     <MenuButton className="text-left hover:underline active:opacity-80">
                         <Heading size="h3" withoutPadding>
-                            <p className="line-clamp-1">{ticket.title}</p>
+                            <p className="line-clamp-1">{ticket.name}</p>
                         </Heading>
                     </MenuButton>
                     <DropdownMenuItems>
@@ -56,7 +56,8 @@ export function TicketCard({ticket}: {ticket: Ticket}) {
                         <Badge theme="layer-0">Untagged</Badge>
                     ) : (
                         <>
-                            <Badge theme="blue">{ticket.ticket_type}</Badge>
+                            <Badge theme="blue">{ticket.product_type}</Badge>
+                            <Badge theme="yellow">{ticket.product_division}</Badge>
                             <Badge theme="red">{ticket.urgency}</Badge>
                             <Badge theme="green">{ticket.sentiment}</Badge>
                         </>

@@ -1,6 +1,6 @@
 import 'server-only'
 
-import {type TicketTags, TicketTagsSchema} from './schema'
+import {type TicketTags, TicketTagsSchema, allProductDivision, allProductType, allSentiment, allUrgency} from './schema'
 
 import OpenAI from 'openai'
 import {zodResponseFormat} from 'openai/helpers/zod'
@@ -14,10 +14,12 @@ export async function getTags({comment}: {comment: string}): Promise<TicketTags>
             {
                 role: 'system',
                 content: [
-                    'Given the following customer ticket, provide the ticket type, urgency, and sentiment.',
-                    'The ticket type should be one of: issue, suggestion, other.',
-                    'The urgency should be one of: low, medium, high.',
-                    'The sentiment should be one of: positive, neutral, negative.',
+                    'You are a helpful assistant for the Apple customer support team.',
+                    'Given the following customer ticket comment, provide the product type, product division, urgency, and sentiment.',
+                    `The product type should be one of: ${allProductType.join(', ')}.`,
+                    `The product division should be one of: ${allProductDivision.join(', ')}.`,
+                    `The urgency should be one of: ${allUrgency.join(', ')}.`,
+                    `The sentiment should be one of: ${allSentiment.join(', ')}.`,
                 ].join(' '),
             },
             {
