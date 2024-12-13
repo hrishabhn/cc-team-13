@@ -1,4 +1,4 @@
-import {TicketCard} from './card'
+import {ManageStack} from './stack'
 import {Unauthorized} from './unauthorized'
 import {PageSection} from '@/components/layout'
 import {PageHeader} from '@/components/layout/page-header'
@@ -18,12 +18,7 @@ export default async function ManagePage({searchParams}: {searchParams: Promise<
     return (
         <PageSection>
             <PageHeader>Manage Tickets</PageHeader>
-
-            <div className="grid grid-cols-[repeat(auto-fill,minmax(320px,1fr))] gap-4">
-                {tickets.map(ticket => (
-                    <TicketCard key={ticket.id} ticket={ticket} />
-                ))}
-            </div>
+            <ManageStack tickets={tickets} />
         </PageSection>
     )
 }
