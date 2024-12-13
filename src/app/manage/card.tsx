@@ -14,7 +14,7 @@ export function TicketCard({ticket}: {ticket: Ticket}) {
     const isUntagged = ticket.product_type === null || ticket.product_division === null || ticket.urgency === null || ticket.sentiment === null
 
     return (
-        <Card rounded="xl">
+        <Card rounded="xl" ring>
             <div className="px-4 py-3">
                 <Menu>
                     <MenuButton className="text-left hover:underline active:opacity-80">
