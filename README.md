@@ -29,3 +29,8 @@ Once compiled, the system consists of a main API as well as a series of lambda f
 -   To access our webpage, visit [this link](https://ticket-tag.vercel.app).
 -   The [`/new`](https://ticket-tag.vercel.app/new) page is where you can submit a ticket.
 -   The [`/manage`](https://ticket-tag.vercel.app/manage) page is for agents to view and manage tickets. Use password `lambda` to access this.
+
+### SDKs
+
+-   [Neon Serverless SDK](https://github.com/neondatabase/serverless)
+-   [OpenAI SDK](https://github.com/openai/openai-node)
