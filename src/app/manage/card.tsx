@@ -17,7 +17,7 @@ export function TicketCard({ticket}: {ticket: Ticket}) {
         <Card rounded="xl" ring>
             <div className="px-4 py-3">
                 <Menu>
-                    <MenuButton className="text-left hover:underline active:opacity-80">
+                    <MenuButton className="text-left hover:underline active:opacity-60">
                         <Heading size="h3" withoutPadding>
                             <p className="line-clamp-1">{ticket.name}</p>
                         </Heading>
